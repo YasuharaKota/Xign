@@ -1,7 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GameList = () => {
-    return <h1>Game List!</h1>;
+    const [games, setGames] = useState([]);
+
+    useEffect(() => {
+        // APIからゲームのデータを取得する
+        fetch('/cms/games/')
+            .then(response => response.json())
+            .then(data => setGames(data))
+            .catch(error => console.error('Error fetching games:', error));
+    }, []);
+
+    return (
+        <div>
+            <h1>Game List!</h1>
+            <ul>
+                {games.map((game, index) => (
+                    <li key={index}>
+                        <a href={`/${game.game_id}/charts`}>{game.game_name}</a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default GameList;

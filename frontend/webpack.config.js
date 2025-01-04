@@ -16,6 +16,11 @@ module.exports = {
                    loader: "babel-loader",
                },
            },
+           {
+               // CSSファイルを処理するルールを追加
+               test: /\.css$/i, // .cssファイルを対象
+               use: ["style-loader", "css-loader"], // 適用されるローダー: 順に適用
+           },
        ],
    },
    optimization: {
