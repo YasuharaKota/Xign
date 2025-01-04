@@ -54,7 +54,7 @@ const GameChartList = () => {
                                 </p>
 
                                 {/* 詳細リンク */}
-                                <a href={`/games/${chart.chart_id}`} className="btn btn-outline-primary">詳細を見る</a>
+                                <a href={`/${game_id}/charts/${chart.chart_id}`} className="btn btn-outline-primary">詳細を見る</a>
                             </div>
                         </div>
                     </div>

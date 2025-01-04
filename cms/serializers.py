@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Game, Chart
+from .models import Game, Chart, Memo
 
 
 class GameSerializer(serializers.ModelSerializer):
@@ -7,16 +7,22 @@ class GameSerializer(serializers.ModelSerializer):
         model = Game
         fields = ['game_id', 'game_name']
 
+class MemoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Memo
+        fields = ['chart', 'one_liner_comment', 'detailed_comment', 'updated_at']
+
 class ChartSerializer(serializers.ModelSerializer):
     music = serializers.SerializerMethodField()
     creator_alias = serializers.SerializerMethodField()
     difficulty = serializers.SerializerMethodField()
     level = serializers.SerializerMethodField()
     chart_constant = serializers.SerializerMethodField()
+    memos = MemoSerializer(many=True, read_only=True)
 
     class Meta:
         model = Chart
-        fields = ['chart_id', 'music', 'game', 'creator_alias', 'difficulty', 'level', 'chart_constant', 'comment']
+        fields = ['chart_id', 'music', 'game', 'creator_alias', 'difficulty', 'level', 'chart_constant', 'comment', 'memos']
 
     def get_music(self, obj):
         return {

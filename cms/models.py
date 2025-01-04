@@ -100,3 +100,12 @@ class Chart(models.Model):
     added_date = models.DateField()
     def __str__(self):
         return f"{self.music}, {self.difficulty}"
+
+class Memo(models.Model):
+    chart = models.ForeignKey(Chart, on_delete=models.CASCADE, related_name='memos')  # 譜面に関連
+    one_liner_comment = models.CharField(max_length=255, blank=True, null=True)  # ひとことメモ（255文字制限）
+    detailed_comment = models.TextField(blank=True, null=True)  # がっつりメモ（制限なし）
+    updated_at = models.DateTimeField(auto_now=True)  # メモの最終更新時刻
+
+    def __str__(self):
+        return f"Memo on {self.chart}"
