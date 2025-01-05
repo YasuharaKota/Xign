@@ -91,7 +91,7 @@ const Chart = () => {
         <div className="container mt-5">
             <button className="btn btn-primary mb-4"
                 onClick={() => window.location.href = `/${game_id}/charts`}>
-                トップページに戻る
+                戻る
             </button>
 
             <h1>{chartData.music.title}</h1>

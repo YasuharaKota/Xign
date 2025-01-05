@@ -14,7 +14,7 @@ const GameList = () => {
 
     return (
         <div>
-            <h1>Game List!</h1>
+            <h1>ゲーム一覧</h1>
             <ul>
                 {games.map((game, index) => (
                     <li key={index}>
