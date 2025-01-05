@@ -6,31 +6,31 @@ __pycache__/
 *.so
 
 # Django specific
-db.sqlite3  # SQLite データベース（他のデータベースを使用する場合は不要）
-media/      # アップロードされたメディアファイル（必要なら追加）
-staticfiles/  # collectstatic コマンドで生成されたファイル
-.env         # 環境変数ファイル
+db.sqlite3
+media/
+staticfiles/
+.env
 
 # Node.js specific
-node_modules/  # npm または yarn の依存関係
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # Build files
-frontend/build/  # React のビルド生成物（Djangoのstaticフォルダにコピーする場合もある）
-frontend/static/  # 必要に応じて追加（React静的ファイルがDjangoのstaticフォルダに配置される場合）
+frontend/build/
+frontend/static/*
 
 # OS-specific files
-.DS_Store  # macOSの一時ファイル
-Thumbs.db  # Windowsの一時ファイル
+.DS_Store
+Thumbs.db
 
 # IDE and editor specific
-.idea/       # PyCharm または IntelliJ のプロジェクト設定
-.vscode/     # Visual Studio Code の設定
-*.swp        # Vim の一時ファイル
+.idea/
+.vscode/
+*.swp
 *.swo
-*.~undo-tree~ # Vim Undo tree plugin
+*.~undo-tree~
 
 # Test and coverage
 *.coverage
@@ -48,8 +48,9 @@ htmlcov/
 *.state
 
 # Docker
-*.env      # Docker 用環境ファイル
+*.env
 docker-compose.override.yml
 
 # Node.js dependencies
-node_modules/
+
+/cms/migrations
